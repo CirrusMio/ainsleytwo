@@ -6,4 +6,4 @@
 host="hq.cirrusmio.com"
 port="5050"
 curl -sG --data-urlencode words=$(echo "$@" | sed 's/ /\+/g') \
-     "http://${host}:${port}/say"
+     "http://${host}:${port}/say" > /dev/null
