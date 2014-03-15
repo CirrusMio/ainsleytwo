@@ -1,0 +1,9 @@
+#!/bin/sh
+# Make the office talk from the command line
+#
+# Usage: ./ains this is a test
+#
+host="hq.cirrusmio.com"
+port="5050"
+curl -sG --data-urlencode words=$(echo "$@" | sed 's/ /\+/g') \
+     "http://${host}:${port}/say"
