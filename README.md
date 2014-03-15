@@ -11,7 +11,7 @@ Deamonized Thin
 
 ## Getting Started
 
-Install the fake say command.
+On Raspberry Pi, install the fake say command. A say command is already installed on OS X.
 
 `cp lib/say /usr/bin/say`
 
