@@ -10,14 +10,11 @@ users = {
   chaserx: 'a4713062efaeb3bd0241cd6d1f56ce78'
 }
 
-get '/say' do
+say = lambda do
   if params && words=params[:words] && users.has_value?(params[:secret])
     `say #{words}`
   end
 end
 
-post '/say' do
-  if params && words=params[:words] && users.has_value?(params[:secret])
-    `say #{words}`
-  end
-end
+get '/say', &say
+post '/say', &say
