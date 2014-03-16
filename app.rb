@@ -13,7 +13,7 @@ class AinsleyTwo < Sinatra::Base
 
   say = lambda do
     if params && users.has_value?(params[:secret])
-      `say #{words}`
+      `say #{params[:words]}`
     else
       halt 403
     end
