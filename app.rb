@@ -22,7 +22,7 @@ get '/key' do
     if internal.include?(incoming)
       key = SecureRandom.hex
       config['whitelist_keys'].push(key)
-      File.open('config.yml', 'w') {|f| f.write(config.to_yaml }
+      File.open('config.yml', 'w') {|f| f.write(config.to_yaml) }
       key
     end
   end
