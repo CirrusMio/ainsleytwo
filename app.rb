@@ -10,6 +10,7 @@ class AinsleyTwo < Sinatra::Base
 
   say = lambda do
     if params && config['whitelist_keys'].include?(params[:token])
+      # NOTE(chase): synchronous version: SayJob.new.perform(params[:words])
       SayJob.new.async.perform(params[:words])
     else
       halt 403
@@ -28,7 +29,7 @@ class AinsleyTwo < Sinatra::Base
       if internal.include?(incoming)
         key = SecureRandom.hex
         config['whitelist_keys'].push(key)
-        File.open('config.yml', 'w') {|f| f.write(config.to_yaml }
+        File.open('config.yml', 'w') {|f| f.write(config.to_yaml) }
         key
       end
     end
