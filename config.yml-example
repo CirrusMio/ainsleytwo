@@ -1,5 +1,4 @@
-subnet:
-  - '10.0.1.0/24'
+subnet: '10.0.1.0/24'
 whitelist_keys:
   - 'bbc2ef86a33282c490c90714c5ae09a0'
   - 'bbc24fa7982b62ee333d519082ff47f1'
