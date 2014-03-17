@@ -2,12 +2,16 @@ require 'sinatra'
 require 'yaml'
 require 'ipaddr'
 
+Dir[File.dirname(__FILE__) + '/jobs/*'].each {|file| require file }
+
+
 class AinsleyTwo < Sinatra::Base
   config = YAML.load_file('config.yml')
 
   say = lambda do
     if params && config['whitelist_keys'].include?(params[:token])
-      `say #{params[:words]}`
+      # NOTE(chase): synchronous version: SayJob.new.perform(params[:words])
+      SayJob.new.async.perform(params[:words])
     else
       halt 403
     end
