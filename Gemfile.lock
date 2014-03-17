@@ -3,7 +3,6 @@ GEM
   specs:
     daemons (1.1.9)
     eventmachine (1.0.3)
-    ipaddress (0.8.0)
     rack (1.5.2)
     rack-protection (1.5.2)
       rack
@@ -21,6 +20,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ipaddress
   sinatra
   thin
