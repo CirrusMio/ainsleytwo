@@ -11,18 +11,18 @@ _ains_error() {
   exit 1
 }
 
-# Return a key
-_ains_key() {
+# Return a token
+_ains_token() {
   url="$(_ains_fetch "url")"
-  curl -G "${url}/key"
+  curl -G "${url}/token"
 }
 
 # Say something
 _ains_say() {
-  key="$(__ains_fetch "key")"
-  [ ! "$key" ] && _ains_error "Please set your key in your .ains file."
+  token="$(__ains_fetch "token")"
+  [ ! "$token" ] && _ains_error "Please set your token in your .ains file."
   words="$(echo "$@" | sed 's/ /\+/g')"
-  curl -sG --data-urlencode "key=$key" \
+  curl -sG --data-urlencode "token=$token" \
            --data-urlencode "words=$words" "${url}/say"
 }
 
@@ -31,7 +31,7 @@ _ains_usage() {
   cat << EOF
 Usage: ains action
 actions:
-    key - fetch a key
+    token - fetch a token
     say - say something
     h - print usage
 EOF
@@ -49,7 +49,7 @@ ains_config="$HOME/.ains"
 
 action="$1"
 case "$action" in
-  key) _ains_key;;
+  token) _ains_token;;
   say) _ains_say;;
   h) _ains_usage;;
   *) _ains_usage;;
