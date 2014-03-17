@@ -8,7 +8,7 @@ class AinsleyTwo < Sinatra::Base
   store = PStore.new('whitelist.pstore')
 
   say = lambda do
-    if params && store["#{params[:key_name]}"] == params[:token]
+    if params && store.transaction { store["#{params[:key_name]}"] } == params[:token]
       `say #{params[:words]}`
     else
       halt 403
