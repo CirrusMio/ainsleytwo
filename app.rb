@@ -8,7 +8,7 @@ class AinsleyTwo < Sinatra::Base
   store = PStore.new('whitelist.pstore')
 
   say = lambda do
-    if params && store.transaction { store["#{params[:key_name]}"] } == params[:token]
+    if params && store.transaction { store["#{params[:user]}"] } == params[:token]
       `say #{params[:words]}`
     else
       halt 403
@@ -21,14 +21,14 @@ class AinsleyTwo < Sinatra::Base
   # Return a key if the incoming request is from an internal network
   # Save the key to the whitelist
   get '/key' do
-    return unless params[:key_name]
+    return unless params[:user]
     if subnet=config['subnet']
       internal = IPAddr.new(subnet)
       incoming = IPAddr.new(request.ip)
       if internal.include?(incoming)
         key = SecureRandom.hex
         store.transaction do
-          store["#{params[:key_name]}"] = key
+          store["#{params[:user]}"] = key
         end
         key
       end
