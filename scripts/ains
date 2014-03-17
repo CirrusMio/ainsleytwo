@@ -1,9 +1,58 @@
 #!/bin/sh
+#
 # Make the office talk from the command line
 #
 # Usage: ./ains this is a test
 #
-host="hq.cirrusmio.com"
-port="5050"
-curl -sG --data-urlencode words=$(echo "$@" | sed 's/ /\+/g') \
-     "http://${host}:${port}/say" > /dev/null
+
+# Return an error
+_ains_error() {
+  echo -e ">>> ERROR: $*" >&2
+  exit 1
+}
+
+# Return a key
+_ains_key() {
+  url="$(_ains_fetch "url")"
+  curl -G "${url}/key"
+}
+
+# Say something
+_ains_say() {
+  key="$(__ains_fetch "key")"
+  [ ! "$key" ] && _ains_error "Please set your key in your .ains file."
+  words="$(echo "$@" | sed 's/ /\+/g')"
+  curl -sG --data-urlencode "key=$key" \
+           --data-urlencode "words=$words" "${url}/say"
+}
+
+# Print out usage info
+_ains_usage() {
+  cat << EOF
+Usage: ains action
+actions:
+    key - fetch a key
+    say - say something
+    h - print usage
+EOF
+}
+
+# Fetch a value from the config file
+_ains_fetch() {
+  key="$1"; shift
+  awk -F ': ' "/${key}/ { print \$2 }" "$ains_config"
+}
+
+# Exit if there is no configuration file
+ains_config="$HOME/.ains"
+[ ! "$ains_config" ]  && _ains_error "Configuration file not found."
+
+action="$1"
+case "$action" in
+  key) _ains_key;;
+  say) _ains_say;;
+  h) _ains_usage;;
+  *) _ains_usage;;
+esac
+
+exit 0
