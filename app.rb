@@ -4,9 +4,10 @@ require 'ipaddr'
 
 class AinsleyTwo < Sinatra::Base
   config = YAML.load_file('config.yml')
+  whitelist = YAML.load_file('whitelist.yml')
 
   say = lambda do
-    if params && config['whitelist_keys'].include?(params[:token])
+    if params && whitelist.include?(params[:token])
       `say #{params[:words]}`
     else
       halt 403
@@ -24,9 +25,9 @@ class AinsleyTwo < Sinatra::Base
       incoming = IPAddr.new(request.ip)
       if internal.include?(incoming)
         key = SecureRandom.hex
-        whitelist = config['whitelist_keys'] ||= []
+        whitelist ||= []
         whitelist.push(key)
-        File.open('config.yml', 'w') {|f| f.write(config.to_yaml) }
+        File.open('config.yml', 'w') {|f| f.write(whitelist.to_yaml) }
         key
       end
     end
