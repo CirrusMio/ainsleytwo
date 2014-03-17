@@ -4,7 +4,6 @@ GEM
     daemons (1.1.9)
     eventmachine (1.0.3)
     ipaddress (0.8.0)
-    moneta (0.7.20)
     multi_json (1.9.0)
     oj (2.6.0)
     rack (1.5.2)
@@ -25,7 +24,6 @@ PLATFORMS
 
 DEPENDENCIES
   ipaddress (~> 0.8.0)
-  moneta (~> 0.7.20)
   multi_json (~> 1.9.0)
   oj (~> 2.6.0)
   sinatra (~> 1.4.4)
