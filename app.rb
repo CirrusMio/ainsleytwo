@@ -19,9 +19,9 @@ class AinsleyTwo < Sinatra::Base
   # Return a key if the incoming request is from an internal network
   # Save the key to the whitelist
   get '/key' do
-    if subnet = config['subnet']
-      internal = IPAddr.new(subnet)
-      incoming = IPAddr.new(request.ip)
+    if subnet = config['subnet'].first
+      internal = IPAddress.parse(subnet)
+      incoming = IPAddress.parse(request.ip)
       if internal.include?(incoming)
         key = SecureRandom.hex
         config['whitelist_keys'].push(key)
