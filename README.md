@@ -17,6 +17,10 @@ On Raspberry Pi, install the fake say command. A say command is already installe
 
 `chmod +x /usr/bin/say`
 
+Add users and keys in whitelist.json. Then `bundle exec rake load_secrets`.
+
+### Acknowledgements
+
 Say Command inspired from:
 http://www.jacobsalmela.com/raspberry-pi-and-the-say-command-from-osx-how-to-make-your-pi-speak-at-will/
 

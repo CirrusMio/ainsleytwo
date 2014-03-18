@@ -3,3 +3,5 @@ whitelist.yml
 .ains
 *.pid
 *.pstore
+whitelist.json
+.rake-tasks~
