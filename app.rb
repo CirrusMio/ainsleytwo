@@ -22,7 +22,7 @@ class AinsleyTwo < Sinatra::Base
   # Save the key to the whitelist
   get '/key' do
     halt 422, 'Error 422: missing user param' unless params[:user]
-    if subnet = config['subnet']
+    if subnet=config['subnet']
       internal = IPAddr.new(subnet)
       incoming = IPAddr.new(request.ip)
       if internal.include?(incoming)
