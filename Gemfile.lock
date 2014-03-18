@@ -1,11 +1,15 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     daemons (1.1.9)
     eventmachine (1.0.3)
+    ipaddress (0.8.0)
+    multi_json (1.9.0)
+    oj (2.6.0)
     rack (1.5.2)
     rack-protection (1.5.2)
       rack
+    rake (10.1.1)
     sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -20,5 +24,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  sinatra
-  thin
+  ipaddress (~> 0.8.0)
+  multi_json (~> 1.9.0)
+  oj (~> 2.6.0)
+  rake (~> 10.1.1)
+  sinatra (~> 1.4.4)
+  thin (~> 1.6.2)
