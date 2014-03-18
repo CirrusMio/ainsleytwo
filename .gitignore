@@ -4,4 +4,4 @@ whitelist.yml
 *.pid
 *.pstore
 whitelist.json
-.rake-tasks~
+.rake_tasks~
