@@ -1,3 +1,5 @@
 config.yml
 whitelist.yml
 .ains
+*.pstore
+*.af.swp
