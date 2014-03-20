@@ -32,4 +32,9 @@ class AinsleyTwo < Sinatra::Base
       end
     end
   end
+
+  post '/door/:position/:alert' do
+    # play proper playlist
+    `mplayer -playlist sounds/playlist/front_door_bell`
+  end
 end
