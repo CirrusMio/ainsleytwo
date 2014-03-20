@@ -3,3 +3,4 @@ whitelist.yml
 .ains
 *.pstore
 *.af.swp
+*.pid
