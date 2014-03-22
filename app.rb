@@ -33,8 +33,15 @@ class AinsleyTwo < Sinatra::Base
     end
   end
 
-  post '/door/:position/:alert' do
-    # play proper playlist
-    `mplayer -playlist sounds/playlist/front_door_bell`
+  # POST /door/front/bell?token=abc123
+  # POST /dorr/front/ajar?token=abc123
+  post '/door/:position/:action' do
+    # play proper playlist by params
+    playlist = "sounds/playlist/#{params[:position]}_door_#{params[:action]}"
+    if params && whitelist.include?(params[:token])
+      `mplayer -playlist #{playlist}`
+    else
+      halt 403
+    end
   end
 end
