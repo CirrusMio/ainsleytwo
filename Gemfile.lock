@@ -24,7 +24,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_support
-  i18n
-  sinatra
-  thin
+  active_support (~> 3.0.0)
+  i18n (~> 0.6.9)
+  sinatra (~> 1.4.4)
+  thin (~> 1.6.2)
