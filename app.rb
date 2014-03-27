@@ -2,24 +2,30 @@ require 'sinatra'
 require 'yaml'
 require 'ipaddr'
 require 'active_support/all'
-Dir.glob('handlers/*.rb').each do |file|
-  require_relative File.expand_path(file)
-end
 
 class AinsleyTwo < Sinatra::Base
-  Dir.glob('handlers/*.rb').each do |file_name|
-    use File.basename(file_name, '.rb').camelize.constantize
+  # include modules
+  Dir.glob('lib/*.rb').each do |mod|
+    require_relative File.expand_path(mod)
+    include File.basename(mod, '.rb').camelize.constantize
   end
 
-  config = YAML.load_file('config.yml')
-  whitelist = YAML.load_file('whitelist.yml')
+  # use Sinatra middlewares
+  Dir.glob('handlers/*.rb').each do |handler|
+    require_relative File.expand_path(handler)
+    use File.basename(handler, '.rb').camelize.constantize
+  end
 
-  say = lambda do
-    if params && whitelist.include?(params[:token])
-      `say #{params[:words]}`
+  # before each request below, authenticate. doesn't apply to middleware routes
+  before do
+    if authenticate(params[:token])
     else
       halt 403
     end
+  end
+
+  say = lambda do
+    `say #{params[:words]}` if params
   end
 
   get '/say', &say
@@ -28,6 +34,7 @@ class AinsleyTwo < Sinatra::Base
   # Return a key if the incoming request is from an internal network
   # Save the key to the whitelist
   get '/key' do
+    config = YAML.load_file('config.yml')
     if subnet=config['subnet']
       internal = IPAddr.new(subnet)
       incoming = IPAddr.new(request.ip)
