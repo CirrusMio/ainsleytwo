@@ -1,8 +1,16 @@
 require 'sinatra'
 require 'yaml'
 require 'ipaddr'
+require 'active_support/all'
+Dir.glob('handlers/*.rb').each do |file|
+  require_relative File.expand_path(file)
+end
 
 class AinsleyTwo < Sinatra::Base
+  Dir.glob('handlers/*.rb').each do |file_name|
+    use File.basename(file_name, '.rb').camelize.constantize
+  end
+
   config = YAML.load_file('config.yml')
   whitelist = YAML.load_file('whitelist.yml')
 
@@ -30,18 +38,6 @@ class AinsleyTwo < Sinatra::Base
         File.open('config.yml', 'w') {|f| f.write(whitelist.to_yaml) }
         key
       end
-    end
-  end
-
-  # POST /door/front/bell?token=abc123
-  # POST /door/front/ajar?token=abc123
-  post '/door/:position/:action' do
-    # play proper playlist by params
-    playlist = "sounds/playlist/#{params[:position]}_door_#{params[:action]}"
-    if params && whitelist.include?(params[:token])
-      `mplayer -playlist #{playlist}`
-    else
-      halt 403
     end
   end
 end
