@@ -4,3 +4,4 @@ whitelist.yml
 *.pstore
 *.af.swp
 *.pid
+log/*
