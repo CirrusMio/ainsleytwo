@@ -56,6 +56,8 @@ Bundle gems:
 
 Install audio player(s):
 
+`sudo apt-get install mpg123`
+
 `sudo apt-get install mplayer`
 
 Configure Pi to send audio out of the 3.5mm jack:
