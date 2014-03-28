@@ -16,21 +16,6 @@ class AinsleyTwo < Sinatra::Base
     use File.basename(handler, '.rb').camelize.constantize
   end
 
-  # before each request below, authenticate. doesn't apply to middleware routes
-  before do
-    if authenticate(params[:token])
-    else
-      halt 403
-    end
-  end
-
-  say = lambda do
-    `say #{params[:words]}` if params
-  end
-
-  get '/say', &say
-  post '/say', &say
-
   # Return a key if the incoming request is from an internal network
   # Save the key to the whitelist
   get '/key' do
