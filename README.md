@@ -22,7 +22,11 @@ http://www.jacobsalmela.com/raspberry-pi-and-the-say-command-from-osx-how-to-mak
 
 ## Have Ainsley II make announcements
 
-curl --data "words=you+look+marvelous&token=abc123" http://127.0.0.1:80/say
+`curl --data "words=you+look+marvelous&token=abc123" http://127.0.0.1:80/say`
+
+also in other languages:
+
+`curl --data "konichiwa+bitches%26langpair=ja%26tl=ja&token=abc123" http://127.0.0.1:80/say`
 
 ## Raspberry Pi setup
 
@@ -48,7 +52,7 @@ Clone Ainsley II:
 
 Bundle gems:
 
-`cd ~/ainsleytwo && sudo bundle install`
+`cd /path/to/ainsleytwo && sudo bundle install`
 
 Install audio player(s):
 
