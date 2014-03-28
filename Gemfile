@@ -6,3 +6,4 @@ gem 'thin', '~> 1.6.2'
 
 gem 'i18n', '~> 0.6.9'
 gem 'activesupport', '~> 4.0.4'
+gem 'rake', '~> 10.2.2'
