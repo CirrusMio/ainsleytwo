@@ -13,4 +13,8 @@ class DoorKnocker < Sinatra::Base
       halt 403
     end
   end
+
+  get '/door/:position/:action' do
+    halt 422, "You must use POST for door notifications."
+  end
 end
