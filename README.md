@@ -9,11 +9,24 @@ Deamonized Thin
 
 `sudo thin -a 10.0.1.101 -p 80 -R config.ru -d --pid thin.pid start`
 
+### Foreman
+
+**Development**
+
+`foreman start -f Procfile.dev`
+
+**Production**
+
+Foreman can export an init script via the following: bluepill, inittab, runit, upstart
+
+For more info on Foreman export formats see:
+http://ddollar.github.io/foreman/#EXPORT-FORMATS
+
 ## Getting Started
 
 On Raspberry Pi, install the fake say command. A say command is already installed on OS X.
 
-`cp lib/say /usr/bin/say`
+`cp scripts/say /usr/bin/say`
 
 `chmod +x /usr/bin/say`
 
