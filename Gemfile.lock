@@ -14,9 +14,13 @@ GEM
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
+    haml (4.0.5)
+      tilt
     i18n (0.6.9)
     minitest (4.7.5)
     multi_json (1.9.0)
+    puma (2.0.1)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-protection (1.5.2)
       rack
@@ -41,7 +45,9 @@ PLATFORMS
 DEPENDENCIES
   activesupport (~> 4.0.4)
   foreman (~> 0.63.0)
+  haml (~> 4.0.5)
   i18n (~> 0.6.9)
+  puma
   rake (~> 10.2.2)
   sinatra (~> 1.4.4)
   thin (~> 1.6.2)
