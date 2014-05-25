@@ -2,6 +2,7 @@ require 'sinatra'
 require 'yaml'
 require 'ipaddr'
 require 'active_support/all'
+require 'haml'
 
 class AinsleyTwo < Sinatra::Base
   # include modules
@@ -16,6 +17,15 @@ class AinsleyTwo < Sinatra::Base
     use File.basename(handler, '.rb').camelize.constantize
   end
 
+  get '/' do
+    haml :index
+  end
+
+  get '/status' do
+    haml :status
+  end
+
+
   # Return a key if the incoming request is from an internal network
   # Save the key to the whitelist
   get '/key' do
@@ -27,7 +37,7 @@ class AinsleyTwo < Sinatra::Base
         key = SecureRandom.hex
         whitelist ||= []
         whitelist.push(key)
-        File.open('config.yml', 'w') {|f| f.write(whitelist.to_yaml) }
+        File.open('whitelist.yml', 'w') {|f| f.write(whitelist.to_yaml) }
         key
       end
     end

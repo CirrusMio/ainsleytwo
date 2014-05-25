@@ -8,3 +8,6 @@ gem 'i18n', '~> 0.6.9'
 gem 'activesupport', '~> 4.0.4'
 gem 'rake', '~> 10.2.2'
 gem 'foreman', '~> 0.63.0'
+gem 'haml', '~> 4.0.5'
+
+gem 'puma'

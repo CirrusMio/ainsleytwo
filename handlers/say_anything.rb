@@ -2,10 +2,10 @@ require_relative '../lib/authentication.rb'
 class SayAnything < Sinatra::Base
   include Authentication
 
-  before do
+  before '/say/' do
     if authenticate(params[:token])
     else
-      halt 403
+      halt 403, haml('Access Denied')
     end
   end
 
