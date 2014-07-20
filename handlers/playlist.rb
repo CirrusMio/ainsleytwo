@@ -4,7 +4,7 @@ class Playlist < Sinatra::Base
 
   # POST /door/front/bell?token=abc123
   # POST /door/front/ajar?token=abc123
-  # Deprecated. But here to preserve backwords compatibility for the moment.
+  # Deprecated. But here to preserve backwards compatibility for the moment.
   post '/door/:position/:action' do
     playlist = "sounds/playlist/#{params[:position]}_door_#{params[:action]}"
     play playlist
