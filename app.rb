@@ -19,7 +19,7 @@ class AinsleyTwo < Sinatra::Base
 
   configure do
     enable :logging
-    file = File.new("#{settings.root}/log/sinatra.log", 'a+')
+    file = File.new("#{settings.root}/log/ainsleytwo.log", 'a+')
     file.sync = true
     use Rack::CommonLogger, file
   end

@@ -4,7 +4,7 @@ class Playlist < Sinatra::Base
 
   configure do
     enable :logging
-    file = File.new(File.expand_path('log/sinatra.log'), 'a+')
+    file = File.new(File.expand_path('log/ainsleytwo.log'), 'a+')
     file.sync = true
     use Rack::CommonLogger, file
   end
