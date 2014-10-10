@@ -17,6 +17,13 @@ class AinsleyTwo < Sinatra::Base
     use File.basename(handler, '.rb').camelize.constantize
   end
 
+  configure do
+    enable :logging
+    file = File.new("#{settings.root}/log/ainsleytwo.log", 'a+')
+    file.sync = true
+    use Rack::CommonLogger, file
+  end
+
   get '/' do
     haml :index
   end

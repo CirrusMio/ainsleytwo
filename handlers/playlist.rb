@@ -2,6 +2,13 @@ require_relative '../lib/authentication.rb'
 class Playlist < Sinatra::Base
   include Authentication
 
+  configure do
+    enable :logging
+    file = File.new(File.expand_path('log/ainsleytwo.log'), 'a+')
+    file.sync = true
+    use Rack::CommonLogger, file
+  end
+
   # POST /door/front/bell?token=abc123
   # POST /door/front/ajar?token=abc123
   # Deprecated. But here to preserve backwards compatibility for the moment.
