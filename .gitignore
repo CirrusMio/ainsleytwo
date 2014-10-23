@@ -5,3 +5,4 @@ whitelist.yml
 *.af.swp
 *.pid
 log/*
+.vagrant
