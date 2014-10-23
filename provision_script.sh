@@ -17,3 +17,8 @@ sudo apt-get install -y nodejs
 sudo apt-get install -y npm
 
 sudo gem install bundler
+
+sudo apt-get install -y mpg123
+sudo apt-get install -y mplayer
+
+
