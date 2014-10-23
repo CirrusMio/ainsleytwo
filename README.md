@@ -3,6 +3,19 @@ ainsleytwo
 
 ![](http://i.imgur.com/3uwBUxl.jpg)
 
+## Contributing
+
+So you've got an awesome idea. Great! Please keep the following in mind:
+
+* Please follow the [GitHub Ruby Styleguide](https://github.com/styleguide/ruby)
+  when modifying Ruby code.
+* Please do your best to submit **small pull requests**. The easier the proposed
+  change is to review, the more likely it will be merged.
+* When submitting a pull request, please make judicious use of the pull request
+  body. A description of what changes were made, the motivations behind the
+  changes and [any tasks completed or left to complete](http://git.io/gfm-tasks)
+  will also speed up review time.
+
 ## Running Server
 
 Deamonized Thin
