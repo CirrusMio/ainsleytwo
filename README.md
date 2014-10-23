@@ -15,6 +15,7 @@ So you've got an awesome idea. Great! Please keep the following in mind:
   body. A description of what changes were made, the motivations behind the
   changes and [any tasks completed or left to complete](http://git.io/gfm-tasks)
   will also speed up review time.
+* Tests would be nice.
 
 ## Running Server
 
