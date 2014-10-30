@@ -1,6 +1,8 @@
 ainsleytwo
 ==========
-![](https://travis-ci.org/CirrusMio/ainsleytwo.svg) [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/CirrusMio/ainsleytwo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Travis-CI](https://travis-ci.org/CirrusMio/ainsleytwo.svg)](https://travis-ci.org/CirrusMio/ainsleytwo)
+[![Gitter](https://badges.gitter.im/JoinChat.svg)](https://gitter.im/CirrusMio/ainsleytwo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![MIT](http://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/CirrusMio/ainsleytwo/blob/master/LICENSE)
 
 ![](http://i.imgur.com/3uwBUxl.jpg)
 
