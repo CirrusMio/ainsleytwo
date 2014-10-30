@@ -1,6 +1,8 @@
 ainsleytwo
 ==========
 
+![](https://travis-ci.org/CirrusMio/ainsleytwo.svg)
+
 ![](http://i.imgur.com/3uwBUxl.jpg)
 
 ## Running Server
