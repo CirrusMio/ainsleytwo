@@ -1,5 +1,6 @@
 ainsleytwo
 ==========
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/CirrusMio/ainsleytwo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ![](https://travis-ci.org/CirrusMio/ainsleytwo.svg)
 
