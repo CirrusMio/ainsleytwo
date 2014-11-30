@@ -12,6 +12,7 @@ end
 Vagrant.configure('2') do |config|
   config.vm.define('ains') do |app|
     app.vm.box = 'ubuntu/trusty64'
+    app.windows.set_work_network = true
 
     app.vm.provider 'virtualbox' do |v|
       v.memory = 1024
