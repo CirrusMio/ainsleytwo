@@ -93,3 +93,11 @@ Install audio player(s):
 Configure Pi to send audio out of the 3.5mm jack:
 
 `sudo amixer cset numid=3 1`
+
+Set audio volume:
+
+`amixer sset 'PCM' 90%`
+
+Install espeak for say command:
+
+`sudo apt-get install espeak`

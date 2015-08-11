@@ -1,2 +1,2 @@
 #!/bin/bash
-mplayer "http://translate.google.com/translate_tts?tl=en&q=$1";
+echo "$1" | espeak -ven-us+f3 -s120 -p50 2>/dev/null

@@ -21,4 +21,4 @@ sudo gem install bundler
 sudo apt-get install -y mpg123
 sudo apt-get install -y mplayer
 
-
+sudo apt-get install -y espeak
